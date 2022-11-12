@@ -16,7 +16,7 @@ const App: React.FC = () => {
       <Suspense fallback={<Loader />}>
         <Routes>
           <Route path="/" element={<Jobboard />} />
-          <Route path="details" element={<Details />} />
+          
         </Routes>
       </Suspense>
     </>
