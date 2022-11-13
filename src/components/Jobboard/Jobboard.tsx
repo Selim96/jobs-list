@@ -18,8 +18,8 @@ type Job = {
         long: number
     },
     pictures: string[],
-    createdAt?: Date,
-    updatedAt?: Date,
+    createdAt?: string,
+    updatedAt?: string,
     description: string,
     employment_type: string[]
 }
@@ -71,7 +71,7 @@ const Jobboard: React.FC = () => {
                                 </div>
                                 <div className={s.rating}></div>
                                 <div className={s.itemBack}>
-                                    <svg className={s.itemSave}>
+                                    <svg width={15} height={15} className={s.itemSave}>
                                         <use></use>
                                     </svg>
                                     <p className={s.itemDate}>{createdAt}</p>
