@@ -6,17 +6,13 @@ const Details = lazy(() => import("./Details/Details"));
 
 
 const App: React.FC = () => {
-  const jobBoard = {
-    path: "/",
-    element: <Jobboard/>
-  }
 
   return (
     <>
       <Suspense fallback={<Loader />}>
         <Routes>
           <Route path="/" element={<Jobboard />} />
-          
+          <Route path='/:id' element={<Details/>} />
         </Routes>
       </Suspense>
     </>
