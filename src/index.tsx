@@ -12,9 +12,8 @@ const root = ReactDOM.createRoot(
 root.render(
   <Provider store={store}>
     <BrowserRouter basename='/'>
-    <App />
-  </BrowserRouter>
+      <App />
+    </BrowserRouter>
   </Provider>
-  
 );
 
