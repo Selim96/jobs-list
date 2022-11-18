@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import { useSelector } from "react-redux";
 import { allJobs } from "../../services/api";
 import allSelectors from "../../redux/selectors";
@@ -6,15 +6,29 @@ import { useAppDispatch } from "../../redux/hooks";
 import { Link } from "react-router-dom";
 import Loader from "../Loader";
 import PostedAgo from "../PostedAgo";
-import Pagination from "../Pagination/Pagination";
+// import Pagination from "../Pagination/Pagination";
 import s from "./Jobboard.module.scss";
-import  Job from "../../interfaces";
+import Job from "../../interfaces";
+import ReactPaginate from 'react-paginate';
 
+type Props = {
+    itemsPerPage: number;
+}
 
-const Jobboard: React.FC = () => {
+const Jobboard: React.FC<Props> = ({ itemsPerPage }) => {
+    const [itemOffset, setItemOffset] = useState<number>(0);
     const dispatch = useAppDispatch();
     const isLoading = useSelector(allSelectors.getLoading);
     const jobs: Job[] = useSelector(allSelectors.getAllJobs);
+
+    const endOffset = itemOffset + itemsPerPage;
+    const currentItems = jobs.slice(itemOffset, endOffset);
+    const pageCount = Math.ceil(jobs.length / itemsPerPage);
+
+    const handlePageClick = (event: any) => {
+        const newOffset = (event.selected * itemsPerPage) % jobs.length;
+        setItemOffset(newOffset);
+    };
 
     useEffect(() => {
         dispatch(allJobs());
@@ -23,7 +37,7 @@ const Jobboard: React.FC = () => {
     return isLoading ? (<Loader />) : (
         <div className={s.board}>
             <ul className={s.list}>
-                {jobs.map(({id, title, name, address, location, pictures, createdAt}) => {
+                {currentItems.map(({id, title, name, address, location, pictures, createdAt}) => {
                     
                     return (
                         <li key={id} className={s.listItem}>
@@ -46,7 +60,16 @@ const Jobboard: React.FC = () => {
                     )
                 })}
             </ul>
-            <Pagination/>
+            <ReactPaginate
+                className={s.pagination}
+                breakLabel="..."
+                nextLabel=" >"
+                previousLabel="< "
+                onPageChange={handlePageClick}
+                pageRangeDisplayed={5}
+                pageCount={pageCount}
+                renderOnZeroPageCount={undefined}
+            />
         </div>
     )
 }

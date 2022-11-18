@@ -76,7 +76,7 @@ const Details: React.FC = () => {
                         <ul className={s.addInfo_emptype}>
                             {employment_type.map((item: string, index: number) => {
                                 return (
-                                    <li id={index.toString()} className={s.addInfo_item}>{item}</li>
+                                    <li key={"addInfo" + index} className={s.addInfo_item}>{item}</li>
                                 )
                             })}
                         </ul>
@@ -84,7 +84,7 @@ const Details: React.FC = () => {
                         <ul className={s.addInfo_benefits}>
                             {benefits.map((item: string, index: number) => {
                                 return (
-                                    <li id={index.toString()} className={s.addInfo_item}>{item}</li>
+                                    <li key={"benefitsnfo" + index} className={s.addInfo_item}>{item}</li>
                                 )
                             })}
                         </ul>
@@ -94,7 +94,7 @@ const Details: React.FC = () => {
                         <ul className={s.images_list}>
                             {pictures.map((item: string, index: number) => {
                                 return (
-                                    <li id={index.toString()} className={s.images_item}><img src={item} width={150} height={100} alt="pictures about job" /></li>
+                                    <li key={index.toString()} className={s.images_item}><img src={item} width={150} height={100} alt="pictures about job" /></li>
                                     )
                             })}
                         </ul>
