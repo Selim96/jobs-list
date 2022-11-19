@@ -9,6 +9,9 @@ import PostedAgo from "../PostedAgo";
 import s from "./Jobboard.module.scss";
 import Job from "../../interfaces";
 import ReactPaginate from 'react-paginate';
+import { AiFillStar } from "react-icons/ai";
+import { BsFillGeoAltFill } from "react-icons/bs";
+import {FiBookmark} from "react-icons/fi";
 
 type Props = {
     itemsPerPage: number;
@@ -47,16 +50,33 @@ const Jobboard: React.FC<Props> = ({ itemsPerPage }) => {
                                 <Link to={`${id}`} className={s.itemLink}>
                                     <h2 className={s.itemTitile}>{title}</h2>
                                 </Link>
-                                <p className={s.itemName}>{name} {address}</p>
-                                <div className={s.itemLocation}>{location.lat},{location.long}</div>
+                                <p className={s.itemName}>{name} <span className={s.itemName_span}>&#183;</span> {address}</p>
+                                <div className={s.itemLocation}>
+                                    <BsFillGeoAltFill
+                                    style={{  color: "var(--item-details-color)" }}
+                                    />
+                                    {location.lat}, {location.long}
+                                    {/* для подключения названия локации необходим ключ Google Geocoding API */}
+                                </div>
                             </div>
-                            <div className={s.rating}></div>
-                            <div className={s.itemBack}>
-                                    <svg width={15} height={15} className={s.itemSave}>
-                                        <use></use>
-                                    </svg>
-                                < PostedAgo createdAt={createdAt} />
+                            <div className={s.itemInteraction}>
+                                <ul className={s.rating_list}>
+                                    <li className={s.rating_item}><AiFillStar className={s.stars} /></li>
+                                    <li className={s.rating_item}><AiFillStar className={s.stars} /></li>
+                                    <li className={s.rating_item}><AiFillStar className={s.stars} /></li>
+                                    <li className={s.rating_item}><AiFillStar className={s.stars} /></li>
+                                    <li className={s.rating_item}><AiFillStar className={s.stars} /></li>
+                                </ul>
+                                <div className={s.itemBack}>
+                                    < PostedAgo createdAt={createdAt} />
+                                    <div >
+                                        <FiBookmark className={s.bookmark} 
+                                        style={{ width: "27", height: "23", }}
+                                        />
+                                    </div>
+                                </div>
                             </div>
+                            
                         </li>
                     )
                 })}

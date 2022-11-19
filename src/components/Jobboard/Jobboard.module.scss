@@ -21,6 +21,7 @@
 }
 
 .listItem {
+    position: relative;
     display: flex;
     background-color: var(--job-item-small-color);
     max-width: 396px;
@@ -55,10 +56,70 @@
 .itemTitile {
     color: var(--item-title-color);
     font-family: Proxima;
-    font-weight: 600;
+    font-weight: 400;
     font-size: 18px;
     line-height: 1.333;
     margin-bottom: 5px;
+}
+.itemTitile:hover {
+    color: var(--additional-text-color);
+}
+
+.itemName {
+    font-size: 16px;
+    line-height: 1.56;
+    font-weight: 400;
+    color: var(--item-details-color);
+    &_span {
+        font-weight: 700;
+    }
+}
+
+.itemLocation {
+    color: var(--item-details-color);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.56;
+    &>svg {
+        margin-right: 8px;
+    }
+}
+
+.itemInteraction {
+    position: absolute;
+    top: 13px;
+    width: calc(100% - 32px);
+    padding-left: 85px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    & .rating_list {
+        display: flex;
+        & .stars {
+            width: 13px;
+            height: 13px;
+            margin-right: 1px;
+            color: var(--item-rating-small-color);
+            cursor: pointer;
+        }
+    }
+    & .itemBack {
+        display: flex;
+        align-items: center;
+        & .bookmark {
+            margin-left: 5px;
+            color: var(--item-rating-small-color);
+            cursor: pointer;
+        }
+    }
+}
+.rating_item:hover .stars{
+    color: var(--benefits-back-color)
+}
+
+.itemBack>div:hover .bookmark {
+    color: var(--benefits-back-color)
 }
 
 .pagination {

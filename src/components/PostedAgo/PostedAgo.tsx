@@ -1,4 +1,5 @@
 import React from "react";
+import s from "./PostedAgo.module.scss";
 
 const time = new Date();
 
@@ -19,7 +20,7 @@ const PostedAgo: React.FC<Props> = (props: Props) => {
     }
 
     return (
-        <p>Posted {timeAgo} </p>
+        <p className={s.text}>Posted {timeAgo} </p>
     )
 }
 
