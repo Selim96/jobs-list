@@ -6,7 +6,6 @@ import { useAppDispatch } from "../../redux/hooks";
 import { Link } from "react-router-dom";
 import Loader from "../Loader";
 import PostedAgo from "../PostedAgo";
-// import Pagination from "../Pagination/Pagination";
 import s from "./Jobboard.module.scss";
 import Job from "../../interfaces";
 import ReactPaginate from 'react-paginate';
