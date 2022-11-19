@@ -1,6 +1,64 @@
+@import "../../stylesheet/mixin";
+
 .board {
-    width: 50%;
-    background-color: var(--job-item-big-color);
+    margin: 0 auto;
+    padding-left: 9px;
+    padding-right: 9px;
+    padding-top: 9px;
+    padding-bottom: 17px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+}
+
+.list {
+    margin-bottom: 26px;
+    @include mq(tablet) {
+        margin-bottom: 49px;
+    }
+}
+
+.listItem {
+    display: flex;
+    background-color: var(--job-item-small-color);
+    max-width: 396px;
+    padding-top: 45px;
+    padding-bottom: 27px;
+    padding-left: 16px;
+    padding-right: 16px;
+    margin-bottom: 8px;
+    border-radius: 8px;
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12), 0px 1px 3px rgba(0, 0, 0, 0.2);
+    @include mq(tablet) {
+        max-width: 1400px;
+        background-color: var(--job-item-big-color);
+    }
+}
+
+.thumb {
+    width: 66px;
+    height: 66px;
+    margin-right: 19px;
+}
+.itemPic {
+    display: block;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.itemInfo {
+
+}
+
+.itemTitile {
+    color: var(--item-title-color);
+    font-family: Proxima;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 1.333;
+    margin-bottom: 5px;
 }
 
 .pagination {

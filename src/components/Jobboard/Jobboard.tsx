@@ -41,7 +41,9 @@ const Jobboard: React.FC<Props> = ({ itemsPerPage }) => {
                     
                     return (
                         <li key={id} className={s.listItem}>
-                            <img src={pictures[0]} alt='place of job' width={85} height={85} className={s.itemPic} />
+                            <div className={s.thumb}>
+                                <img src={pictures[0]} alt='place of job' width={66} height={66} className={s.itemPic} />
+                            </div>
                             <div className={s.itemInfo}>
                                 <Link to={`${id}`} className={s.itemLink}>
                                     <h2 className={s.itemTitile}>{title}</h2>
