@@ -11,7 +11,7 @@
 
 @mixin mq($range) {
   $mobile: 414px;
-  $tablet: 768px;
+  $tablet: 1024px;
   $desktop: 1920px;
 
     @if $range == mobile-only {

@@ -52,7 +52,7 @@ const Jobboard: React.FC<Props> = ({ itemsPerPage }) => {
                                 </Link>
                                 <p className={s.itemName}>{name} <span className={s.itemName_span}>&#183;</span> {address}</p>
                                 <div className={s.itemLocation}>
-                                    <BsFillGeoAltFill
+                                    <BsFillGeoAltFill 
                                     style={{  color: "var(--item-details-color)" }}
                                     />
                                     {location.lat}, {location.long}
@@ -84,7 +84,9 @@ const Jobboard: React.FC<Props> = ({ itemsPerPage }) => {
             <ReactPaginate
                 className={s.pagination}
                 breakLabel="..."
-                nextLabel=" >"
+                nextLabel={<FiBookmark className={s.bookmark} 
+                                        style={{ width: "27", height: "23", }}
+                                        />}
                 previousLabel="< "
                 onPageChange={handlePageClick}
                 pageRangeDisplayed={5}

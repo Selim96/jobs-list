@@ -1,6 +1,12 @@
+@import "../../stylesheet/mixin";
 .text {
     font-weight: 300;
     font-size: 14px;
     line-height: 1.21;
     color: var(--item-details-color);
+    @include mq(tablet) {
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 1.56;
+    }
 }
