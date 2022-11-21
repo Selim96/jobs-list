@@ -11,7 +11,8 @@ import Job from "../../interfaces";
 import ReactPaginate from 'react-paginate';
 import { AiFillStar } from "react-icons/ai";
 import { BsFillGeoAltFill } from "react-icons/bs";
-import {FiBookmark} from "react-icons/fi";
+import { FiBookmark } from "react-icons/fi";
+import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 
 type Props = {
     itemsPerPage: number;
@@ -83,13 +84,20 @@ const Jobboard: React.FC<Props> = ({ itemsPerPage }) => {
             </ul>
             <ReactPaginate
                 className={s.pagination}
+                pageClassName={s.pagination_item}
+                activeClassName={s.pagination_activeItem}
+                pageLinkClassName={s.pagination_link}
+                previousClassName={s.previousLi}
+                nextClassName={s.nextLi}
+                previousLinkClassName={s.previousLabel} 
+                nextLinkClassName={s.nextLabel}
                 breakLabel="..."
-                nextLabel={<FiBookmark className={s.bookmark} 
-                                        style={{ width: "27", height: "23", }}
-                                        />}
-                previousLabel="< "
+                nextLabel= {<IoIosArrowForward className=""  
+                />}
+                previousLabel={<IoIosArrowBack className="" 
+                    />}
                 onPageChange={handlePageClick}
-                pageRangeDisplayed={5}
+                pageRangeDisplayed={3}
                 pageCount={pageCount}
                 renderOnZeroPageCount={undefined}
             />
