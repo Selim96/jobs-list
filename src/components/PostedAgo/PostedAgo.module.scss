@@ -1,12 +1,16 @@
 @import "../../stylesheet/mixin";
 .text {
     font-weight: 300;
-    font-size: 14px;
-    line-height: 1.21;
-    color: var(--item-details-color);
+    font-size: 13px;
+    line-height: 1.92;
+    letter-spacing: 0.191905px;
+    color: var(--desc-save-color);
     @include mq(tablet) {
+        font-family: 'Roboto';
         font-weight: 400;
-        font-size: 16px;
-        line-height: 1.56;
+        font-size: 18px;
+        line-height: 1.33;
+        letter-spacing: -0.5625px;
+        color: rgba(56, 65, 93, 0.355988);
     }
 }

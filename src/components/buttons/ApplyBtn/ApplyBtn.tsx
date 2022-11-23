@@ -2,8 +2,12 @@ import React from "react";
 import s from './ApplyBtn.module.scss';
 
 const ApplyBtn: React.FC = () => {
+    const handlClick = (): void => {
+        console.log("Apply button is clicked!")
+    }
+
     return (
-        <button className={s.button}>APPLY NOW</button>
+        <button type="button" onClick={handlClick} className={s.button}>APPLY NOW</button>
     )
 }
 

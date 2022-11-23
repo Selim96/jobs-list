@@ -1,0 +1,23 @@
+@import "../../../stylesheet/mixin";
+
+.button {
+    width: 127px;
+    height: 52px;
+    cursor: pointer;
+    background-color: var(--item-rating-small-color);
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 1.33;
+    text-align: center;
+    text-transform: uppercase;
+    color: var(--job-item-big-color);
+    border: none;
+    
+    &:hover {
+        color: var(--item-rating-small-color);
+        background-color: var(--job-item-big-color);
+        border:solid 2px var(--item-rating-small-color);
+        // box-shadow: 2px 1px 1px var(--item-details-color);
+    }
+}
