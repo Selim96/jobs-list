@@ -22,24 +22,39 @@
     padding-top: 24px;
     margin-bottom: 63px;
     & .button {
+        position: relative;
+        
         width: 213px;
         height: 50px;
         background: rgba(56, 69, 100, 0.14);
         mix-blend-mode: normal;
         border-radius: 8px;
+        border: none;
         cursor: pointer;
+        display: flex;
+        align-items: center;
+        padding-left: 12px;
+        padding-right: 20px;
         font-weight: 600;
         font-size: 12px;
         line-height: 1.33;
         text-align: center;
+        justify-content: center;
         text-transform: uppercase;
         color: var(--item-title-color);
+        @include mq(desktop) {
+            left: -89px;
+        }
         &:hover {
             box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
+        }
+        &>.btnIcon {
+            color: var(--item-rating-small-color);
         }
     }
     @include mq(desktop) {
         margin-right: 133px;
+        margin-bottom: 0;
     }
 }
 
@@ -48,6 +63,9 @@
     margin-bottom: 26px;
     &>.title {
         margin-bottom: 79px;
+        @include mq(tablet) {
+            margin-bottom: 39px;
+        }
     }
     & .applyBtn {
         display: none;
@@ -200,7 +218,7 @@
     padding-right: 4px;
     padding-left: 4px;
     &:hover {
-        box-shadow: 0px 1px 1px var(--item-rating-big-color), 2px -1px 2px var(--item-rating-big-color);
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
     }
     & .bookmark {
         margin-right: 12px;
@@ -218,13 +236,14 @@
     flex-direction: column-reverse;
     @include mq(tablet) {
         flex-direction: column;
+        margin-bottom: 97px;
     }
 }
 
 .images {
     margin-bottom: 63px;
     @include mq(tablet) {
-        margin-bottom: 97px;
+        margin-bottom: 0;
     }
     &>.title {
         margin-bottom: 20px;

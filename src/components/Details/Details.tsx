@@ -9,6 +9,7 @@ import PostedAgo from "../PostedAgo";
 import s from "./Details.module.scss";
 import { FiBookmark } from "react-icons/fi";
 import { BsFillShareFill, BsFillGeoAltFill, BsStar } from "react-icons/bs";
+import { IoIosArrowBack } from "react-icons/io";
 
 const Details: React.FC = () => {
     const dispatch = useAppDispatch();
@@ -115,7 +116,9 @@ const Details: React.FC = () => {
                     </div>
                     
                     <div className={s.backBtn}>
-                        <button type="button" className={s.button} onClick={handleClick}>RETURN TO JOB BOARD</button>
+                        <button type="button" className={s.button} onClick={handleClick}><IoIosArrowBack className={s.btnIcon} 
+                                        style={{ width: "25", height: "25", }}
+                                        /> RETURN TO JOB BOARD</button>
                     </div>
                     
                 </div>
