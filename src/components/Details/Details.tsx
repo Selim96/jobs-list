@@ -8,7 +8,7 @@ import ApplyBtn from "../buttons";
 import PostedAgo from "../PostedAgo";
 import s from "./Details.module.scss";
 import { FiBookmark } from "react-icons/fi";
-import { BsFillShareFill, BsFillGeoAltFill, BsStar } from "react-icons/bs";
+import { BsFillShareFill, BsFillGeoAltFill } from "react-icons/bs";
 import { IoIosArrowBack } from "react-icons/io";
 
 const Details: React.FC = () => {
@@ -29,7 +29,7 @@ const Details: React.FC = () => {
     }, [dispatch, id]);
 
     if (details) {
-        const { name, phone, email, title, salary, address, benefits, location, pictures, description, employment_type, createdAt
+        const { name, phone, email, title, salary, address, benefits, pictures, description, employment_type, createdAt
         } = details;
 
         const salaryToAdd = salary.split("k").join("000");
