@@ -14,12 +14,12 @@ import { BsFillGeoAltFill } from "react-icons/bs";
 import { FiBookmark } from "react-icons/fi";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 
-type Props = {
+interface Props  {
     itemsPerPage: number;
 }
 
-const Jobboard: React.FC<Props> = ({ itemsPerPage }) => {
-    const [itemOffset, setItemOffset] = useState<number>(0);
+const Jobboard: React.FC<Props> = ({ itemsPerPage = 20 }) => {
+    const [itemOffset, setItemOffset] = useState(0);
     const dispatch = useAppDispatch();
     const isLoading = useSelector(allSelectors.getLoading);
     const jobs: Job[] = useSelector(allSelectors.getAllJobs);
@@ -28,7 +28,7 @@ const Jobboard: React.FC<Props> = ({ itemsPerPage }) => {
     const currentItems = jobs.slice(itemOffset, endOffset);
     const pageCount = Math.ceil(jobs.length / itemsPerPage);
 
-    const handlePageClick = (event: any) => {
+    const handlePageClick = (event: {selected: number;}) => {
         const newOffset = (event.selected * itemsPerPage) % jobs.length;
         setItemOffset(newOffset);
     };

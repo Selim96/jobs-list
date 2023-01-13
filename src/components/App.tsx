@@ -11,7 +11,7 @@ const App: React.FC = () => {
     <>
       <Suspense fallback={<Loader />}>
         <Routes>
-          <Route path="/" element={<Jobboard itemsPerPage={10} />} />
+          <Route path="/" element={<Jobboard itemsPerPage={5} />} />
           <Route path='/:id' element={<Details/>} />
         </Routes>
       </Suspense>

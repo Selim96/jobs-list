@@ -3,11 +3,11 @@ import s from "./PostedAgo.module.scss";
 
 const time = new Date();
 
-type Props = {
+interface IProps  {
     createdAt: string
 }
 
-const PostedAgo: React.FC<Props> = (props: Props) => {
+const PostedAgo: React.FC<IProps> = (props: IProps) => {
     let timeAgo: string = "";
     
     const dataAgo = Math.round((time.getTime() - Date.parse(props.createdAt)) / 86400000);

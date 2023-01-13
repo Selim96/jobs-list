@@ -3,14 +3,14 @@ import { allJobs } from "../services/api";
 import { toast } from "react-toastify";
 import  Job from "../interfaces";
 
-interface JobsState {
+interface IJobsState {
     jobs: Job[],
     jobDetails: Job,
     error: any,
     loading: boolean
 };
 
-const initialState: JobsState = {
+const initialState: IJobsState = {
     jobs: [],
     jobDetails: null,
     error: null,
